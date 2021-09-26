@@ -5,7 +5,7 @@
 
 #define ASSM ".assm"
 
-bool check_extension(char *file);
+bool check_extension(char *file, char *extension);
 
 char* load_module(char* path);
 

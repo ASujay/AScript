@@ -5,17 +5,17 @@
 #include <stdlib.h>
 #include <errno.h>
 
-bool check_extension(char *file){
-  char *extension = file;
+bool check_extension(char *file, char *extension){
+  char *module_name = file;
 
-  extension = extension + (strlen(file));
+  module_name = module_name + (strlen(file));
 
-  if(strcmp((extension - 5), ASSM) == 0){
+  if(strcmp((module_name - 5), extension) == 0){
       return true;
     }
   //create a error message
   char error_msg[50];
-  sprintf(error_msg, "%s is not a valid .assm file.\n", file);
+  sprintf(error_msg, "%s is not a valid .%s file.\n", file, extension);
   set_error(FILE_EXTENSION_ERR, error_msg);
   return false;
   }
